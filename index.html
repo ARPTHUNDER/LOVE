@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#130c12">
+  <meta name="description" content="A little love letter for Laado.">
+  <title>For Laado, always</title>
+  <style>
+    /* Everything is contained in this one file. Edit the words in the HTML below. */
+    :root {
+      color-scheme: dark;
+      --night: #130c12;
+      --ink: #f8ece2;
+      --muted: #c6b6b4;
+      --rose: #d7a6a9;
+      --gold: #d9b47e;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--night);
+      color: var(--ink);
+      font-family: Georgia, 'Times New Roman', serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+      opacity: .11;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.28'/%3E%3C/svg%3E");
+    }
+    a { color: inherit; }
+    .loader {
+      position: fixed;
+      z-index: 20;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: var(--night);
+      color: var(--gold);
+      font: 11px/1.5 Arial, sans-serif;
+      letter-spacing: .32em;
+      text-transform: uppercase;
+      animation: curtain 1.7s ease forwards;
+      pointer-events: none;
+    }
+    .loader span { animation: rise .7s ease both; }
+    @keyframes curtain { 0%, 67% { opacity: 1; } 100% { opacity: 0; visibility: hidden; } }
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .page { overflow: hidden; }
+    .hero {
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 105px 26px 110px;
+      isolation: isolate;
+      background: radial-gradient(ellipse at 50% 47%, #482532 0%, #24141e 39%, var(--night) 78%);
+    }
+    .hero::before, .hero::after {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      width: min(78vw, 840px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(217,180,126,.16);
+      border-radius: 50%;
+      animation: breathe 8s ease-in-out infinite alternate;
+    }
+    .hero::after { width: min(63vw, 680px); border-color: rgba(215,166,169,.12); animation-delay: -3s; }
+    @keyframes breathe { from { transform: scale(.97); opacity: .55; } to { transform: scale(1.04); opacity: 1; } }
+    .topline, .eyebrow, .chapter, .credit, .scroll, .ornament {
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      font-weight: 400;
+      letter-spacing: .28em;
+    }
+    .topline {
+      position: absolute;
+      top: 34px;
+      left: 0;
+      right: 0;
+      color: var(--gold);
+      font-size: 10px;
+    }
+    .hero-content { max-width: 900px; position: relative; z-index: 1; }
+    .eyebrow { color: var(--gold); font-size: 11px; margin: 0 0 27px; }
+    h1, h2, p { margin-top: 0; }
+    h1 { font-size: clamp(67px, 11vw, 158px); font-weight: 400; line-height: .88; letter-spacing: -.065em; margin: 0; }
+    h1 em, .closing h2 em { display: block; color: var(--rose); font-weight: 400; }
+    h1 em { font-size: .82em; padding-top: .17em; }
+    .hero-sub { color: var(--muted); font-size: clamp(17px, 2vw, 22px); line-height: 1.6; font-style: italic; margin: 35px auto 0; }
+    .scroll { position: absolute; bottom: 35px; left: 0; right: 0; color: #aa8f8c; font-size: 9px; text-decoration: none; }
+    .scroll::after { content: ''; display: block; width: 1px; height: 28px; margin: 13px auto 0; background: var(--gold); opacity: .6; }
+    .reel {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      padding: 15px 20px;
+      border-top: 1px solid rgba(217,180,126,.16);
+      border-bottom: 1px solid rgba(217,180,126,.16);
+      background: #1b1119;
+    }
+    .reel i { width: 8px; height: 8px; display: block; border: 1px solid #815f62; border-radius: 1px; }
+    .story {
+      position: relative;
+      padding: 150px 24px 165px;
+      text-align: center;
+      background: linear-gradient(180deg, #1b1119, #24151e 48%, #170e16);
+    }
+    .story-inner { max-width: 860px; margin: auto; }
+    .chapter { font-size: 10px; color: var(--gold); margin-bottom: 33px; }
+    .date { font-size: clamp(77px, 12vw, 153px); line-height: .93; font-weight: 400; letter-spacing: -.07em; margin: 0; }
+    .year { color: var(--gold); font: 11px/1 Arial, sans-serif; letter-spacing: .34em; margin: 24px auto 0; }
+    .date small { font-size: .27em; vertical-align: top; display: inline-block; padding-top: .18em; letter-spacing: -.01em; color: var(--rose); }
+    .thin-rule { width: 74px; height: 1px; background: var(--gold); margin: 50px auto 47px; opacity: .65; }
+    .story p:not(.chapter) { max-width: 630px; margin: 0 auto; color: #e8d7d2; font-size: clamp(22px, 3vw, 34px); line-height: 1.5; letter-spacing: -.025em; }
+    .story p em { color: var(--rose); }
+    .interlude {
+      padding: 155px 26px 170px;
+      text-align: center;
+      background: #170e16;
+      border-top: 1px solid rgba(217,180,126,.1);
+    }
+    .interlude-inner { max-width: 770px; margin: auto; }
+    .ornament { font-size: 19px; color: var(--gold); letter-spacing: 0; margin: 0 0 43px; }
+    .interlude blockquote { margin: 0; font-size: clamp(33px, 5vw, 65px); line-height: 1.19; font-weight: 400; letter-spacing: -.047em; }
+    .interlude blockquote em { color: var(--rose); font-weight: 400; }
+    .interlude .after { margin: 42px auto 0; color: var(--muted); font-size: 19px; line-height: 1.7; max-width: 510px; }
+    .closing {
+      min-height: 86svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 130px 25px 85px;
+      background: radial-gradient(ellipse at 50% 48%, #542b3a, #261620 45%, #130c12 78%);
+      border-top: 1px solid rgba(217,180,126,.12);
+    }
+    .closing h2 { font-size: clamp(65px, 10.3vw, 145px); font-weight: 400; line-height: .95; letter-spacing: -.066em; margin: 7px 0 40px; }
+    .closing h2 em { font-size: .79em; padding-top: .1em; }
+    .closing-note { max-width: 475px; color: #e7d5d0; font-size: clamp(19px, 2.1vw, 24px); font-style: italic; line-height: 1.55; margin: 0; }
+    .credit { font-size: 10px; color: var(--gold); margin-top: 92px; }
+    @media (max-width: 600px) {
+      .topline { top: 26px; }
+      .hero { min-height: 100svh; padding-top: 95px; }
+      .hero::before { width: 112vw; } .hero::after { width: 89vw; }
+      .eyebrow, .chapter { letter-spacing: .22em; }
+      .hero-sub { margin-top: 29px; }
+      .story { padding: 113px 25px 121px; }
+      .thin-rule { margin: 39px auto; }
+      .interlude { padding: 118px 28px 130px; }
+      .interlude .after { font-size: 17px; }
+      .closing { min-height: 76svh; padding: 110px 25px 72px; }
+      .credit { margin-top: 80px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; scroll-behavior: auto !important; }
+      .loader { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader" aria-hidden="true"><span>A little something for you</span></div>
+  <main class="page">
+    <!-- OPENING: edit the title and subtitle here. -->
+    <section class="hero" aria-labelledby="opening-title">
+      <div class="topline">A little story, just ours</div>
+      <div class="hero-content">
+        <p class="eyebrow">For the one I call Laado</p>
+        <h1 id="opening-title">For you, <em>always.</em></h1>
+        <p class="hero-sub">Some stories begin long before the first date.</p>
+      </div>
+      <a class="scroll" href="#our-story">Turn the page</a>
+    </section>
+    <!-- The small squares recall the perforations along a strip of film. -->
+    <div class="reel" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <!-- BEST FRIENDS AND FIRST DATE: March 26, 2020 and November 2, 2024. -->
+    <section class="story" id="our-story" aria-labelledby="story-title">
+      <div class="story-inner">
+        <p class="chapter">Scene 01 / Our first date</p>
+        <h2 class="date" id="story-title">Nov <small>02</small></h2>
+        <p class="year">2024</p>
+        <div class="thin-rule" aria-hidden="true"></div>
+        <p>We have been best friends since March 26, 2020. On November 2, 2024, at a cinema hall, we went on our first date as a couple. <em>We already had our story; that night, it took a new turn.</em></p>
+      </div>
+    </section>
+    <!-- LETTER: keep this personal without adding memories Arpan hasn't supplied. -->
+    <section class="interlude" aria-label="A little note">
+      <div class="interlude-inner">
+        <p class="ornament" aria-hidden="true">✦</p>
+        <p class="chapter">A little note, between scenes</p>
+        <blockquote>I love the way <em>you</em> have become my favorite part of this story.</blockquote>
+        <p class="after">I loved being your best friend. I love getting to be yours.</p>
+      </div>
+    </section>
+    <!-- CLOSING: the message he asked to say to Laado. -->
+    <section class="closing" aria-labelledby="closing-title">
+      <p class="eyebrow">No grand ending. Just the truth.</p>
+      <h2 id="closing-title">I love you, <em>Laado.</em></h2>
+      <p class="closing-note">For all the scenes we have lived, and all the ones still to come.</p>
+      <p class="credit">Always yours, Arpan</p>
+    </section>
+  </main>
+</body>
+</html>
